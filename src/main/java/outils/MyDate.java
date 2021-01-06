@@ -10,8 +10,6 @@ import java.util.Locale;
  */
 public class MyDate extends Date
 {
-	Date date;
-
 	/**
 	 *
 	 */
@@ -28,7 +26,7 @@ public class MyDate extends Date
 	 */
 	public MyDate(String date)
 	{
-		this.date = new Date(date);
+		super(date);
 	}
 
 	/**
@@ -39,7 +37,7 @@ public class MyDate extends Date
 	 */
 	public MyDate(int day, int month, int year)
 	{
-		this.date = new Date(month + "/" + day + "/" + year);
+		super(month + "/" + day + "/" + year);
 	}
 
 	/**
@@ -47,7 +45,7 @@ public class MyDate extends Date
 	 */
 	public String toString()
 	{
-		return (new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH)).format(this.date);
+		return (new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH)).format(this);
 	}
 
 }
