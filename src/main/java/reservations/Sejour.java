@@ -3,12 +3,13 @@ package reservations;
 import logements.Logement;
 import outils.MyDate;
 
-public class Sejour implements SejourInterface
+public abstract class Sejour implements SejourInterface
 {
 	MyDate dateArrivee;
 	int nbNuits;
 	Logement logement;
 	int nbVoyageurs;
+	int tarif;
 
 	public Sejour(MyDate dateArrivee, int nbNuits, Logement logement, int nbVoyageurs)
 	{
@@ -16,6 +17,7 @@ public class Sejour implements SejourInterface
 		this.nbNuits = nbNuits;
 		this.logement = logement;
 		this.nbVoyageurs = nbVoyageurs;
+		this.miseAJourDuTarif();
 	}
 
 	public void afficher(String voyageur)
@@ -43,20 +45,12 @@ public class Sejour implements SejourInterface
 	}
 
 	/**
-	 * Verify if night number is between 1 included and 1 excluded.
-	 * For 31 days, there is only 30 nights.
-	 */
-	@Override
-	public boolean verificationNombreDenuits() {
-		return this.nbNuits >= 1 && this.nbNuits < 31;
-	}
-
-	/**
 	 * Verify if the trvelers number is valid.
 	 */
 	@Override
 	public boolean verificationNombreDeVoyageurs() {
-		// TODO Auto-generated method stub
 		return this.nbVoyageurs <= this.logement.getNbVoyageurs();
 	}
+
+	protected abstract void miseAJourDuTarif();
 }
