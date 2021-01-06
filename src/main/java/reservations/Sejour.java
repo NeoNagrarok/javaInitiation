@@ -18,8 +18,9 @@ public class Sejour implements SejourInterface
 		this.nbVoyageurs = nbVoyageurs;
 	}
 
-	public void afficher()
+	public void afficher(String voyageur)
 	{
+		System.out.print(voyageur);
 		this.logement.afficher();
 		System.out.println(
 			"La date d'arrivée est le " +
@@ -28,7 +29,7 @@ public class Sejour implements SejourInterface
 			this.nbNuits +
 			" nuits."
 		);
-		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * logement.tarifParNuit) + "€.");
+		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.tarifParNuit) + "€.");
 	}
 
 	/**

@@ -21,7 +21,6 @@ public class Reservation {
 
 	public void afficher()
 	{
-		System.out.print(this.voyageur + " a fait une réservation chez ");
-		this.sejour.afficher();
+		this.sejour.afficher(this.voyageur + " a fait une réservation chez ");
 	}
 }

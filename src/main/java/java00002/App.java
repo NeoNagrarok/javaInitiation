@@ -7,6 +7,8 @@ import outils.MyDate;
 import outils.Utile;
 import reservations.Reservation;
 import reservations.Sejour;
+import reservations.SejourCourt;
+import reservations.SejourLong;
 import utilisateurs.Hote;
 import utilisateurs.Voyageur;
 
@@ -39,9 +41,15 @@ public class App
             10
         );
         // logementUn.afficher();
-        Sejour sejourUn = new Sejour(new MyDate("12/05/2016"), 4, logementUn, 2);
+        Sejour sejourUn = new SejourLong(new MyDate("12/05/2016"), 4, logementUn, 2, 50);
         // sejourUn.afficher();
         Reservation reservationUn = new Reservation(personneUn, sejourUn, true);
+        reservationUn.afficher();
+
+        Utile.separator();
+
+        Sejour sejourDeux = new SejourCourt(new MyDate("12/05/2016"), 4, logementUn, 2);
+        reservationUn = new Reservation(personneUn, sejourDeux, true);
         reservationUn.afficher();
 
         System.out.println();

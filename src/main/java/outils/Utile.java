@@ -41,4 +41,12 @@ public class Utile
 	{
 		return (new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH)).format(date);
 	}
+
+	/**
+	 * For console purpose only, display a visual separator to improve clarity
+	 */
+	public static void separator()
+	{
+		System.out.println("________________________________________________");
+	}
 }
