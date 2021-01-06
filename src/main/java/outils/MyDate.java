@@ -15,9 +15,12 @@ public class MyDate extends Date
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Current timestamp is used to initialize the default date
+	 */
 	public MyDate()
 	{
-		super();
+		super(System.currentTimeMillis());
 	}
 
 	/**
