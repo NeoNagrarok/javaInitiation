@@ -56,7 +56,7 @@ public class Menu {
 			value = Menu.sc.nextInt();
 		} catch (Exception e) {
 			System.err.println("Veuillez ne pas rentrer autre chose qu'un nombre, réessayez !");
-			sc.next();
+			Menu.sc.nextLine();
 			value = Menu.choix(maxValue);
 		}
 

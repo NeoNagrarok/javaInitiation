@@ -19,11 +19,15 @@ public class GestionHotes {
 				try {
 					GestionHotes.ajouterHote();
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.out.println("Mauvais entrée, réessayez");
+					Menu.sc.nextLine();
+					GestionHotes.listerHotes();
 				}
+				GestionHotes.listerHotes();
 				break;
 			case 2:
 				GestionHotes.supprimerHote();
+				GestionHotes.listerHotes();
 				break;
 			case 3:
 				Menu.listerMenu();
@@ -38,10 +42,10 @@ public class GestionHotes {
 
 	private static void ajouterHote() throws Exception {
 		System.out.print("Entrez le prénom : ");
-		String firstName = Menu.sc.nextLine();
-		System.out.print("\nEntrez le nom : ");
-		String lastName = Menu.sc.nextLine();
-		System.out.print("\nEntrez l'âge : ");
+		String firstName = Menu.sc.next();
+		System.out.print("Entrez le nom : ");
+		String lastName = Menu.sc.next();
+		System.out.print("Entrez l'âge : ");
 		int age = Menu.sc.nextInt();
 
 		Hote hote = new Hote(firstName, lastName, age, 12);
