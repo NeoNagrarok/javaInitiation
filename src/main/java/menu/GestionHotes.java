@@ -5,14 +5,14 @@ import utilisateurs.Hote;
 public class GestionHotes {
 
 	static void listerHotes() {
+		System.out.println("-------------------------------------\n" + "Liste des Hôtes\n");
+		int size = Menu.listHote.size();
+		for (int i = 0; i < size; i++) {
+			System.out.print((i + 1) + " : ");
+			Menu.listHote.get(i).afficher();
+		}
 		System.out.println(
-			"-------------------------------------\n"	+
-			"Liste des Hôtes \n"						+
-			"Saisir une option : \n"					+
-			"1 : Ajoutez un hôte\n"						+
-			"2 : Supprimer un hôte\n"					+
-			"3 : Retour"
-		);
+				"\nSaisir une option : \n" + "1 : Ajoutez un hôte\n" + "2 : Supprimer un hôte\n" + "3 : Retour");
 
 		switch (Menu.choix(3)) {
 			case 1:
@@ -21,12 +21,16 @@ public class GestionHotes {
 				} catch (Exception e) {
 					System.out.println("Mauvais entrée, réessayez");
 					Menu.sc.nextLine();
-					GestionHotes.listerHotes();
 				}
 				GestionHotes.listerHotes();
 				break;
 			case 2:
-				GestionHotes.supprimerHote();
+				try {
+					GestionHotes.supprimerHote();
+				} catch (Exception e) {
+					System.out.println("Mauvais entrée, réessayez");
+					Menu.sc.nextLine();
+				}
 				GestionHotes.listerHotes();
 				break;
 			case 3:
@@ -37,7 +41,11 @@ public class GestionHotes {
 		}
 	}
 
-	private static void supprimerHote() {
+	private static void supprimerHote() throws Exception {
+		System.out.println("Entre l'indice à supprimer : ");
+		int indice = Menu.choix(Menu.listHote.size(), true) - 1;
+		Menu.listHote.remove(indice);
+		System.out.println("Hôte définitivement supprimé !");
 	}
 
 	private static void ajouterHote() throws Exception {
@@ -49,6 +57,7 @@ public class GestionHotes {
 		int age = Menu.sc.nextInt();
 
 		Hote hote = new Hote(firstName, lastName, age, 12);
-		hote.afficher();
+		Menu.listHote.add(hote);
+		System.out.println("Hôte ajouté avec succès !");
 	}
 }

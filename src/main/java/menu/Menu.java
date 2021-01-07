@@ -1,13 +1,21 @@
 package menu;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import utilisateurs.Hote;
 
 public class Menu {
 	
 	static Scanner sc;
+	static List<Hote> listHote;
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenu chez AirBnB");
+
+		Menu.listHote = new ArrayList<>();
+
 		Menu.sc = new Scanner(System.in);
 
 		Menu.listerMenu();
@@ -59,6 +67,20 @@ public class Menu {
 			Menu.sc.nextLine();
 			value = Menu.choix(maxValue);
 		}
+
+		if (value < 1 || value > maxValue)
+		{
+			System.err.println("Ce choix n'est pas disponible, réessayez !");
+			value = Menu.choix(maxValue);
+		}
+
+		return value;
+	}
+
+	static int choix(int maxValue, boolean noException) throws Exception
+	{
+		int value = 0;
+		value = Menu.sc.nextInt();
 
 		if (value < 1 || value > maxValue)
 		{
