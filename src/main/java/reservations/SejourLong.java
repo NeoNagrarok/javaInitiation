@@ -46,7 +46,7 @@ public class SejourLong extends Sejour implements ConditionsTarifairesInterface 
 	 */
 	@Override
 	public boolean verificationNombreDenuits() {
-		return this.nbNuits >= 1 && this.nbNuits < 31;
+		return this.nbNuits >= 6 && this.nbNuits < 31;
 	}
 
 	/**
