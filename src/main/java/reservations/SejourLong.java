@@ -5,12 +5,11 @@ import outils.MyDate;
 
 public class SejourLong extends Sejour implements ConditionsTarifairesInterface {
 
-	public final int PROMOTION_EN_POURCENTAGE;
+	public final int PROMOTION_EN_POURCENTAGE = 20;
 	int promotion;
 
-	public SejourLong(MyDate dateArrivee, int nbNuits, Logement logement, int nbVoyageurs, int promotion_en_pourcentage) {
+	public SejourLong(MyDate dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
 		super(dateArrivee, nbNuits, logement, nbVoyageurs);
-		this.PROMOTION_EN_POURCENTAGE = promotion_en_pourcentage;
 		this.miseAJourDuTarif();
 	}
 
@@ -56,7 +55,7 @@ public class SejourLong extends Sejour implements ConditionsTarifairesInterface 
 	@Override
 	protected void miseAJourDuTarif() {
 		int basePrice = this.nbNuits * this.logement.tarifParNuit;
-		this.promotion = basePrice / 100 * this.PROMOTION_EN_POURCENTAGE;
+		this.promotion = (int)((float)(basePrice / 100.0) * this.PROMOTION_EN_POURCENTAGE);
 		this.tarif = basePrice - this.promotion;
 	}
 }

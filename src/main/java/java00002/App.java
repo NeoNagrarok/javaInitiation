@@ -41,7 +41,7 @@ public class App
             10
         );
         // logementUn.afficher();
-        Sejour sejourUn = new SejourLong(new MyDate("12/05/2016"), 4, logementUn, 2, 50);
+        Sejour sejourUn = new SejourLong(new MyDate("12/05/2016"), 4, logementUn, 2);
         // sejourUn.afficher();
         Reservation reservationUn = new Reservation(personneUn, sejourUn, true);
         reservationUn.afficher();
