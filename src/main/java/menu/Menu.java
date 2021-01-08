@@ -4,17 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import logements.Logement;
+import reservations.Reservation;
 import utilisateurs.Hote;
+import utilisateurs.Voyageur;
 
 public class Menu {
 	
 	static Scanner sc;
 	static List<Hote> listHote;
+	static List<Logement> listLogement;
+	static List<Voyageur> listVoyageur;
+	static List<Reservation> listReservation;
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenu chez AirBnB");
 
 		Menu.listHote = new ArrayList<>();
+		Menu.listLogement = new ArrayList<>();
+		Menu.listVoyageur = new ArrayList<>();
+		Menu.listReservation = new ArrayList<>();
 
 		Menu.sc = new Scanner(System.in);
 
@@ -40,7 +49,7 @@ public class Menu {
 				GestionHotes.listerHotes();
 				break;
 			case 2:
-				
+				GestionLogement.listerLogements();
 				break;
 			case 3:
 				
@@ -89,5 +98,21 @@ public class Menu {
 		}
 
 		return value;
+	}
+
+	public static void displayListHote() {
+		int size = Menu.listHote.size();
+		for (int i = 0; i < size; i++) {
+			System.out.print((i + 1) + " : ");
+			Menu.listHote.get(i).afficher();
+		}
+	}
+
+	public static void displayListLogement() {
+		int size = Menu.listLogement.size();
+		for (int i = 0; i < size; i++) {
+			System.out.print((i + 1) + " : ");
+			Menu.listLogement.get(i).afficher();
+		}
 	}
 }

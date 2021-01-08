@@ -6,11 +6,7 @@ public class GestionHotes {
 
 	static void listerHotes() {
 		System.out.println("-------------------------------------\n" + "Liste des Hôtes\n");
-		int size = Menu.listHote.size();
-		for (int i = 0; i < size; i++) {
-			System.out.print((i + 1) + " : ");
-			Menu.listHote.get(i).afficher();
-		}
+		Menu.displayListHote();
 		System.out.println(
 				"\nSaisir une option : \n" + "1 : Ajoutez un hôte\n" + "2 : Supprimer un hôte\n" + "3 : Retour");
 
@@ -19,7 +15,7 @@ public class GestionHotes {
 				try {
 					GestionHotes.ajouterHote();
 				} catch (Exception e) {
-					System.out.println("Mauvais entrée, réessayez");
+					System.out.println("Mauvaise entrée, réessayez");
 					Menu.sc.nextLine();
 				}
 				GestionHotes.listerHotes();
@@ -28,7 +24,7 @@ public class GestionHotes {
 				try {
 					GestionHotes.supprimerHote();
 				} catch (Exception e) {
-					System.out.println("Mauvais entrée, réessayez");
+					System.out.println("Mauvaise entrée, réessayez");
 					Menu.sc.nextLine();
 				}
 				GestionHotes.listerHotes();
