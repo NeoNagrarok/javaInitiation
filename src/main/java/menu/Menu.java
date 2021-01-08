@@ -1,17 +1,15 @@
 package menu;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import logements.Logement;
 import outils.IDisplayable;
-import reservations.Reservation;
-import utilisateurs.Hote;
-import utilisateurs.Voyageur;
 
 public class Menu {
-	
+
 	static Scanner sc;
 	static List<IDisplayable> listHote;
 	static List<IDisplayable> listLogement;
@@ -56,10 +54,7 @@ public class Menu {
 				GestionVoyageur.listerVoyageur();
 				break;
 			case 4:
-				
-				break;
-			case 5:
-				
+				GestionReservation.listerReservation();
 				break;
 			default:
 				break;

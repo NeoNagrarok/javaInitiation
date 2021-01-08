@@ -32,7 +32,7 @@ public class Maison extends Logement
 	public void afficher()
 	{
 		this.hote.afficher();
-		System.out.println("Le logement est situé " + this.adresse);
+		System.out.println("Le logement est situé au " + this.adresse);
 		System.out.println("Superficie : " + this.superficie + "m²");
 		System.out.print("Jardin : " + (this.superficieJardin > 0 ? "Oui (" + this.superficieJardin + "m²)" : "Non"));
 		System.out.println();
