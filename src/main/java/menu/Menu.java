@@ -105,6 +105,7 @@ public class Menu {
 		for (int i = 0; i < size; i++) {
 			System.out.print((i + 1) + " : ");
 			Menu.listHote.get(i).afficher();
+			System.out.println();
 		}
 	}
 
@@ -113,6 +114,7 @@ public class Menu {
 		for (int i = 0; i < size; i++) {
 			System.out.print((i + 1) + " : ");
 			Menu.listLogement.get(i).afficher();
+			System.out.println();
 		}
 	}
 }

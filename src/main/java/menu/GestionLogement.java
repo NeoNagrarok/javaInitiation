@@ -13,7 +13,7 @@ public class GestionLogement {
 		System.out.println("-------------------------------------\n" + "Liste des Logements\n");
 		Menu.displayListLogement();
 		System.out.println(
-				"\nSaisir une option : \n" + "1 : Ajoutez un logement\n" + "2 : Supprimer un logement\n" + "3 : Retour");
+				"Saisir une option : \n" + "1 : Ajoutez un logement\n" + "2 : Supprimer un logement\n" + "3 : Retour");
 
 		switch (Menu.choix(3)) {
 			case 1:
@@ -43,7 +43,11 @@ public class GestionLogement {
 		}
 	}
 
-	private static void supprimerLogement() {
+	private static void supprimerLogement() throws Exception {
+		System.out.println("Entre l'indice à supprimer : ");
+		int indice = Menu.choix(Menu.listLogement.size(), true) - 1;
+		Menu.listLogement.remove(indice);
+		System.out.println("Logement définitivement supprimé !");
 	}
 
 	private static void ajouterLogement() throws Exception {
@@ -81,7 +85,7 @@ public class GestionLogement {
 			System.out.print("Entrez la superficie du balcon (0 si il n'y a pas de balcon) : ");
 			maisonHasSwimmingpoolOrAppartementSuperficie = Menu.sc.nextInt();
 		}
-		
+
 		Class<?> c = Class.forName("logements." + type);
 
 		Logement logement = (Logement) c.getConstructors()[0].newInstance(

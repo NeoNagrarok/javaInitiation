@@ -8,7 +8,7 @@ public class GestionHotes {
 		System.out.println("-------------------------------------\n" + "Liste des Hôtes\n");
 		Menu.displayListHote();
 		System.out.println(
-				"\nSaisir une option : \n" + "1 : Ajoutez un hôte\n" + "2 : Supprimer un hôte\n" + "3 : Retour");
+				"Saisir une option : \n" + "1 : Ajoutez un hôte\n" + "2 : Supprimer un hôte\n" + "3 : Retour");
 
 		switch (Menu.choix(3)) {
 			case 1:
