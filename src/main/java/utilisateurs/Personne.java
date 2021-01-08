@@ -1,6 +1,8 @@
 package utilisateurs;
 
-public class Personne
+import outils.IDisplayable;
+
+public class Personne implements IDisplayable
 {
 	String firstName;
 	String lastName;

@@ -1,9 +1,10 @@
 package reservations;
 
 import logements.Logement;
+import outils.IDisplayable;
 import outils.MyDate;
 
-public abstract class Sejour implements SejourInterface
+public abstract class Sejour implements SejourInterface, IDisplayable
 {
 	MyDate dateArrivee;
 	int nbNuits;
@@ -23,6 +24,20 @@ public abstract class Sejour implements SejourInterface
 	public void afficher(String voyageur)
 	{
 		System.out.print(voyageur);
+		this.logement.afficher();
+		System.out.println(
+			"La date d'arrivée est le " +
+			this.dateArrivee +
+			" pour " +
+			this.nbNuits +
+			" nuits."
+		);
+		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.tarifParNuit) + "€.");
+	}
+
+
+	public void afficher()
+	{
 		this.logement.afficher();
 		System.out.println(
 			"La date d'arrivée est le " +

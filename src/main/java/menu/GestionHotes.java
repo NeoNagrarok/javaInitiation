@@ -6,7 +6,7 @@ public class GestionHotes {
 
 	static void listerHotes() {
 		System.out.println("-------------------------------------\n" + "Liste des Hôtes\n");
-		Menu.displayListHote();
+		Menu.displayList(Menu.listHote);
 		System.out.println(
 				"Saisir une option : \n" + "1 : Ajoutez un hôte\n" + "2 : Supprimer un hôte\n" + "3 : Retour");
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import logements.Logement;
+import outils.IDisplayable;
 import reservations.Reservation;
 import utilisateurs.Hote;
 import utilisateurs.Voyageur;
@@ -12,10 +13,10 @@ import utilisateurs.Voyageur;
 public class Menu {
 	
 	static Scanner sc;
-	static List<Hote> listHote;
-	static List<Logement> listLogement;
-	static List<Voyageur> listVoyageur;
-	static List<Reservation> listReservation;
+	static List<IDisplayable> listHote;
+	static List<IDisplayable> listLogement;
+	static List<IDisplayable> listVoyageur;
+	static List<IDisplayable> listReservation;
 
 	public static void main(String[] args) {
 		System.out.println("Bienvenu chez AirBnB");
@@ -52,7 +53,7 @@ public class Menu {
 				GestionLogement.listerLogements();
 				break;
 			case 3:
-				
+				GestionVoyageur.listerVoyageur();
 				break;
 			case 4:
 				
@@ -100,20 +101,12 @@ public class Menu {
 		return value;
 	}
 
-	public static void displayListHote() {
-		int size = Menu.listHote.size();
+	public static void displayList(List<IDisplayable> list)
+	{
+		int size = list.size();
 		for (int i = 0; i < size; i++) {
 			System.out.print((i + 1) + " : ");
-			Menu.listHote.get(i).afficher();
-			System.out.println();
-		}
-	}
-
-	public static void displayListLogement() {
-		int size = Menu.listLogement.size();
-		for (int i = 0; i < size; i++) {
-			System.out.print((i + 1) + " : ");
-			Menu.listLogement.get(i).afficher();
+			list.get(i).afficher();
 			System.out.println();
 		}
 	}

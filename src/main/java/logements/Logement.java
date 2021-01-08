@@ -1,8 +1,9 @@
 package logements;
 
+import outils.IDisplayable;
 import utilisateurs.Hote;
 
-public abstract class Logement
+public abstract class Logement implements IDisplayable
 {
 	Hote hote;
 	public int tarifParNuit;

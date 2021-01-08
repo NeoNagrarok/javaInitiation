@@ -11,7 +11,7 @@ public class GestionLogement {
 
 	public static void listerLogements() {
 		System.out.println("-------------------------------------\n" + "Liste des Logements\n");
-		Menu.displayListLogement();
+		Menu.displayList(Menu.listLogement);
 		System.out.println(
 				"Saisir une option : \n" + "1 : Ajoutez un logement\n" + "2 : Supprimer un logement\n" + "3 : Retour");
 
@@ -53,9 +53,9 @@ public class GestionLogement {
 	private static void ajouterLogement() throws Exception {
 		String typesLogement[] = {"Maison", "Appartement"};
 
-		Menu.displayListHote();
+		Menu.displayList(Menu.listHote);
 		System.out.print("Entrez le numéro d'un hôte : ");
-		Hote hote = Menu.listHote.get(Menu.choix(Menu.listHote.size(), true) - 1);
+		Hote hote = (Hote)Menu.listHote.get(Menu.choix(Menu.listHote.size(), true) - 1);
 		System.out.print("Entrez le numéro correspondant au type de logement : ");
 		String type = typesLogement[Menu.choix(typesLogement.length, true) - 1];
 		System.out.print("Entrez le tarif par nuit : ");
@@ -99,7 +99,7 @@ public class GestionLogement {
 		);
 
 		Menu.listLogement.add(logement);
-		System.out.println("Hôte ajouté avec succès !");
+		System.out.println("Logement ajouté avec succès !");
 	}
 
 }
