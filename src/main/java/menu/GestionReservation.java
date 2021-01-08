@@ -2,6 +2,9 @@ package menu;
 
 import logements.Logement;
 import outils.MyDate;
+import outils.dateArriveeException;
+import outils.nombreDeNuitException;
+import outils.nombreDeVoyageurException;
 import reservations.Reservation;
 import reservations.Sejour;
 import reservations.SejourCourt;
@@ -81,10 +84,16 @@ public class GestionReservation {
 				"Numéro du logement : " + numLogement				+ "\n" +
 				"Date d'arrivée (DD/MM/YYY) : " + myDate			+ "\n" +
 				"Nombre de nuits : " + nbNuits						+ "\n" +
-				"Nombre de personnes" + nbVoyageurs					+ "\n" +
+				"Nombre de personnes : " + nbVoyageurs					+ "\n" +
 				"------------------------------";
 			reservation.log(toLog);
 			System.out.println("Réservation ajouté avec succès !");
+		} catch (dateArriveeException e) {
+			System.out.println("La réservation n'a pas pu s'effectuer car la date pour le séjour n'est pas valable !");
+		} catch (nombreDeNuitException e) {
+			System.out.println("La réservation n'a pas pu s'effectuer car le nombre de nuits pour le séjour n'est pas valable !");
+		} catch (nombreDeVoyageurException e) {
+			System.out.println("La réservation n'a pas pu s'effectuer car le nombre de voyegeurs pour le séjour n'est pas valable !");
 		} catch (Exception e) {
 			System.out.println("La réservation n'a pas pu s'effectuer car le séjour n'est pas valable !");
 		}

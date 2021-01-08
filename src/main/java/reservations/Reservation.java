@@ -5,6 +5,9 @@ import java.io.IOException;
 
 import outils.IDisplayable;
 import outils.MyDate;
+import outils.dateArriveeException;
+import outils.nombreDeNuitException;
+import outils.nombreDeVoyageurException;
 import utilisateurs.Voyageur;
 
 public class Reservation implements IDisplayable {
@@ -15,9 +18,15 @@ public class Reservation implements IDisplayable {
 	MyDate dateDeReservation;
 
 	public Reservation(Voyageur voyageur, Sejour sejour, boolean estValidee) throws Exception {
-		if (!sejour.verificationDateArrivee() || !sejour.verificationNombreDeVoyageurs()
-				|| !sejour.verificationNombreDenuits())
-			throw new Exception();
+		if (!sejour.verificationDateArrivee())
+			throw new dateArriveeException();
+
+		if(!sejour.verificationNombreDeVoyageurs())
+			throw new nombreDeVoyageurException();
+
+		if (!sejour.verificationNombreDeNuits())
+			throw new nombreDeNuitException();
+
 		this.sejour = sejour;
 		this.voyageur = voyageur;
 		this.estValidee = estValidee;

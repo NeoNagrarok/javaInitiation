@@ -24,7 +24,7 @@ public class SejourCourt extends Sejour implements ConditionsTarifairesInterface
 	 * For 31 days, there is only 30 nights.
 	 */
 	@Override
-	public boolean verificationNombreDenuits() {
+	public boolean verificationNombreDeNuits() {
 		return this.nbNuits >= 1 && this.nbNuits < 6;
 	}
 
