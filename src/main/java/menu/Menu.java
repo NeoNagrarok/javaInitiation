@@ -15,9 +15,18 @@ public class Menu {
 	static List<IDisplayable> listLogement;
 	static List<IDisplayable> listVoyageur;
 	static List<IDisplayable> listReservation;
+	public static final String RESET = "\u001B[0m";
+	public static final String BLACK = "\u001B[30m";
+	public static final String RED = "\u001B[31m";
+	public static final String GREEN = "\u001B[32m";
+	public static final String YELLOW = "\u001B[33m";
+	public static final String BLUE = "\u001B[34m";
+	public static final String PURPLE = "\u001B[35m";
+	public static final String CYAN = "\u001B[36m";
+	public static final String WHITE = "\u001B[37m";
 
 	public static void main(String[] args) {
-		System.out.println("Bienvenu chez AirBnB");
+		System.out.println(Menu.GREEN + "Bienvenu chez AirBnB" + Menu.RESET);
 
 		Menu.listHote = new ArrayList<>();
 		Menu.listLogement = new ArrayList<>();
@@ -68,14 +77,14 @@ public class Menu {
 		try {
 			value = Menu.sc.nextInt();
 		} catch (Exception e) {
-			System.err.println("Veuillez ne pas rentrer autre chose qu'un nombre, réessayez !");
+			System.err.println(Menu.RED + "Veuillez ne pas rentrer autre chose qu'un nombre, réessayez !" + Menu.RESET);
 			Menu.sc.nextLine();
 			value = Menu.choix(maxValue);
 		}
 
 		if (value < 1 || value > maxValue)
 		{
-			System.err.println("Ce choix n'est pas disponible, réessayez !");
+			System.err.println(Menu.RED + "Ce choix n'est pas disponible, réessayez !" + Menu.RESET);
 			value = Menu.choix(maxValue);
 		}
 
@@ -89,7 +98,7 @@ public class Menu {
 
 		if (value < 1 || value > maxValue)
 		{
-			System.err.println("Ce choix n'est pas disponible, réessayez !");
+			System.err.println(Menu.RED + "Ce choix n'est pas disponible, réessayez !" + Menu.RESET);
 			value = Menu.choix(maxValue);
 		}
 

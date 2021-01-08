@@ -15,7 +15,7 @@ public class GestionHotes {
 				try {
 					GestionHotes.ajouterHote();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionHotes.listerHotes();
@@ -24,7 +24,7 @@ public class GestionHotes {
 				try {
 					GestionHotes.supprimerHote();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionHotes.listerHotes();
@@ -54,6 +54,6 @@ public class GestionHotes {
 
 		Hote hote = new Hote(firstName, lastName, age, 12);
 		Menu.listHote.add(hote);
-		System.out.println("Hôte ajouté avec succès !");
+		System.out.println(Menu.GREEN + "Hôte ajouté avec succès !" + Menu.RESET);
 	}
 }

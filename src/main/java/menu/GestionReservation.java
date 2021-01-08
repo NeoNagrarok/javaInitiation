@@ -24,7 +24,7 @@ public class GestionReservation {
 				try {
 					GestionReservation.ajouterReservation();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					e.printStackTrace();
 					Menu.sc.nextLine();
 				}
@@ -34,7 +34,7 @@ public class GestionReservation {
 				try {
 					GestionReservation.supprimerResrvation();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionReservation.listerReservation();
@@ -87,15 +87,15 @@ public class GestionReservation {
 				"Nombre de personnes : " + nbVoyageurs					+ "\n" +
 				"------------------------------";
 			reservation.log(toLog);
-			System.out.println("Réservation ajouté avec succès !");
+			System.out.println(Menu.GREEN + "Réservation ajouté avec succès !" + Menu.RESET);
 		} catch (dateArriveeException e) {
-			System.out.println("La réservation n'a pas pu s'effectuer car la date pour le séjour n'est pas valable !");
+			System.out.println(Menu.RED + "La réservation n'a pas pu s'effectuer car la date pour le séjour n'est pas valable !" + Menu.RESET);
 		} catch (nombreDeNuitException e) {
-			System.out.println("La réservation n'a pas pu s'effectuer car le nombre de nuits pour le séjour n'est pas valable !");
+			System.out.println(Menu.RED + "La réservation n'a pas pu s'effectuer car le nombre de nuits pour le séjour n'est pas valable !" + Menu.RESET);
 		} catch (nombreDeVoyageurException e) {
-			System.out.println("La réservation n'a pas pu s'effectuer car le nombre de voyegeurs pour le séjour n'est pas valable !");
+			System.out.println(Menu.RED + "La réservation n'a pas pu s'effectuer car le nombre de voyegeurs pour le séjour n'est pas valable !" + Menu.RESET);
 		} catch (Exception e) {
-			System.out.println("La réservation n'a pas pu s'effectuer car le séjour n'est pas valable !");
+			System.out.println(Menu.RED + "La réservation n'a pas pu s'effectuer car le séjour n'est pas valable !" + Menu.RESET);
 		}
 	}
 

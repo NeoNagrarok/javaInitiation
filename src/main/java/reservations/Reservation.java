@@ -3,6 +3,7 @@ package reservations;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import menu.Menu;
 import outils.IDisplayable;
 import outils.MyDate;
 import outils.dateArriveeException;
@@ -44,7 +45,7 @@ public class Reservation implements IDisplayable {
 			fw.write(toLog);
 			fw.close();
 		} catch (IOException e) {
-			System.out.println("Impossible d'écrire dans le fichier 'resa'");
+			System.out.println(Menu.RED + "Impossible d'écrire dans le fichier 'resa'" + Menu.RESET);
 		}
 	}
 }

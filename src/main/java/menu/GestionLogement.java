@@ -20,7 +20,7 @@ public class GestionLogement {
 				try {
 					GestionLogement.ajouterLogement();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					e.printStackTrace();
 					Menu.sc.nextLine();
 				}
@@ -30,7 +30,7 @@ public class GestionLogement {
 				try {
 					GestionLogement.supprimerLogement();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionLogement.listerLogements();
@@ -99,7 +99,7 @@ public class GestionLogement {
 		);
 
 		Menu.listLogement.add(logement);
-		System.out.println("Logement ajouté avec succès !");
+		System.out.println(Menu.GREEN + "Logement ajouté avec succès !" + Menu.RESET);
 	}
 
 }

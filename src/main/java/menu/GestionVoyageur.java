@@ -15,8 +15,7 @@ public class GestionVoyageur {
 				try {
 					GestionVoyageur.ajouterVoyageur();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
-					e.printStackTrace();
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionVoyageur.listerVoyageur();
@@ -25,7 +24,7 @@ public class GestionVoyageur {
 				try {
 					GestionVoyageur.supprimerVoyageur();
 				} catch (Exception e) {
-					System.out.println("Mauvaise entrée, réessayez");
+					System.out.println(Menu.RED + "Mauvaise entrée, réessayez" + Menu.RESET);
 					Menu.sc.nextLine();
 				}
 				GestionVoyageur.listerVoyageur();
@@ -55,7 +54,7 @@ public class GestionVoyageur {
 
 		Voyageur hote = new Voyageur(firstName, lastName, age);
 		Menu.listVoyageur.add(hote);
-		System.out.println("Voyageur ajouté avec succès !");
+		System.out.println(Menu.GREEN + "Voyageur ajouté avec succès !" + Menu.RESET);
 	}
 
 }
