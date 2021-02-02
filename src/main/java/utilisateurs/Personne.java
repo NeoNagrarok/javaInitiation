@@ -1,8 +1,9 @@
 package utilisateurs;
 
+import outils.ComparatorInterface;
 import outils.IDisplayable;
 
-public class Personne implements IDisplayable
+public class Personne implements IDisplayable, ComparatorInterface
 {
 	String firstName;
 	String lastName;
@@ -24,4 +25,18 @@ public class Personne implements IDisplayable
 	{
 		return this.firstName + " " + this.lastName + " (" + this.age + " ans)";
 	}
+
+	public ComparatorInterface getHigher(ComparatorInterface item)
+	{
+		if (!(item instanceof Personne) || this.age > ((Personne)item).age)
+			return (ComparatorInterface)this;
+		return item;
+	};
+
+	public ComparatorInterface getLower(ComparatorInterface item)
+	{
+		if (!(item instanceof Personne) || this.age < ((Personne)item).age)
+			return (ComparatorInterface)this;
+		return item;
+	};
 }

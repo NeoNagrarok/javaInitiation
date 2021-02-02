@@ -1,15 +1,17 @@
 package logements;
 
+import outils.ComparatorInterface;
 import outils.IDisplayable;
 import utilisateurs.Hote;
 
-public abstract class Logement implements IDisplayable
+public abstract class Logement implements IDisplayable, ComparatorInterface
 {
 	Hote hote;
 	public int tarifParNuit;
 	String adresse;
 	int superficie;
 	int nbVoyageurs;
+	String name;
 
 	public Logement(Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageurs)
 	{
@@ -18,6 +20,7 @@ public abstract class Logement implements IDisplayable
 		this.adresse = adresse;
 		this.superficie = superficie;
 		this.nbVoyageurs = nbVoyageurs;
+		this.name = "";
 	}
 
 	public Hote getHote() {
@@ -39,6 +42,30 @@ public abstract class Logement implements IDisplayable
 	public int getNbVoyageurs() {
 		return this.nbVoyageurs;
 	}
+
+	public String getName()
+	{
+		return this.name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public ComparatorInterface getHigher(ComparatorInterface item)
+	{
+		if (!(item instanceof Logement) || this.tarifParNuit > ((Logement)item).tarifParNuit)
+			return (ComparatorInterface)this;
+		return item;
+	};
+
+	public ComparatorInterface getLower(ComparatorInterface item)
+	{
+		if (!(item instanceof Logement) || this.tarifParNuit < ((Logement)item).tarifParNuit)
+			return (ComparatorInterface)this;
+		return item;
+	};
 
 	public abstract int getSuperficieTotale();
 	public abstract void afficher();
