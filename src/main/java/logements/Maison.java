@@ -2,10 +2,10 @@ package logements;
 
 import utilisateurs.Hote;
 
-public class Maison extends Logement
+public final class Maison extends Logement
 {
-	int superficieJardin;
-	boolean possedePiscine;
+	private final int superficieJardin;
+	private final boolean possedePiscine;
 
 	public Maison(
 		Hote hote,
@@ -20,6 +20,21 @@ public class Maison extends Logement
 		super(hote, tarifParNuit, adresse, superficie, nbVoyageurs);
 		this.superficieJardin = superficieJardin;
 		this.possedePiscine = possedePiscine;
+	}
+
+	public Logement copy()
+	{
+		return (Logement)(new Maison(this.hote, this.tarifParNuit, this.adresse, this.superficie, this.nbVoyageurs, this.superficieJardin, this.possedePiscine));
+	}
+
+	public int getSuperficieJardin()
+	{
+		return this.superficieJardin;
+	}
+
+	public boolean getPossedePiscine()
+	{
+		return this.possedePiscine;
 	}
 
 	@Override

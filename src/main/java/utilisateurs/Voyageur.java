@@ -1,6 +1,6 @@
 package utilisateurs;
 
-public class Voyageur extends Personne
+public final class Voyageur extends Personne
 {
 	public Voyageur(String firstName, String lastName, int age)
 	{

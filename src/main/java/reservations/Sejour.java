@@ -6,19 +6,69 @@ import outils.MyDate;
 
 public abstract class Sejour implements SejourInterface, IDisplayable
 {
-	MyDate dateArrivee;
-	int nbNuits;
-	Logement logement;
-	int nbVoyageurs;
-	int tarif;
+	protected MyDate dateArrivee;
+	protected int nbNuits;
+	protected Logement logement;
+	protected int nbVoyageurs;
+	protected int tarif;
 
 	public Sejour(MyDate dateArrivee, int nbNuits, Logement logement, int nbVoyageurs)
 	{
-		this.dateArrivee = dateArrivee;
+		this.dateArrivee = new MyDate(dateArrivee.toString());
 		this.nbNuits = nbNuits;
 		this.logement = logement;
 		this.nbVoyageurs = nbVoyageurs;
 		this.miseAJourDuTarif();
+	}
+
+	public MyDate getDateArrivee()
+	{
+		return new MyDate(this.dateArrivee.toString());
+	}
+
+	public int getNbNuits()
+	{
+		return this.nbNuits;
+	}
+
+	public int getNbVoyageurs()
+	{
+		return this.nbVoyageurs;
+	}
+
+	public int getTarif()
+	{
+		return this.tarif;
+	}
+
+	public Logement getLogement()
+	{
+		return this.logement.copy();
+	}
+
+	public void setDateArrivee(MyDate dateArrivee)
+	{
+		this.dateArrivee = new MyDate(dateArrivee.toString());
+	}
+
+	public void setNbNuits(int nbNuits)
+	{
+		this.nbNuits = nbNuits;
+	}
+
+	public void setNbVoyageurs(int nbVoyageurs)
+	{
+		this.nbVoyageurs = nbVoyageurs;
+	}
+
+	public void setTarif(int tarif)
+	{
+		this.tarif = tarif;
+	}
+
+	public void setLogement(Logement logement)
+	{
+		this.logement = logement.copy();
 	}
 
 	public void afficher(String voyageur)
@@ -32,7 +82,7 @@ public abstract class Sejour implements SejourInterface, IDisplayable
 			this.nbNuits +
 			" nuits."
 		);
-		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.tarifParNuit) + "€.");
+		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.getTarifParNuit()) + "€.");
 	}
 
 
@@ -46,7 +96,7 @@ public abstract class Sejour implements SejourInterface, IDisplayable
 			this.nbNuits +
 			" nuits."
 		);
-		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.tarifParNuit) + "€.");
+		System.out.println("Le prix de ce séjour est de " + (this.nbNuits * this.logement.getTarifParNuit()) + "€.");
 	}
 
 	/**

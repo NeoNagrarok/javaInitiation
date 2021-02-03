@@ -3,11 +3,11 @@ package utilisateurs;
 import outils.ComparatorInterface;
 import outils.IDisplayable;
 
-public class Personne implements IDisplayable, ComparatorInterface
+public abstract class Personne implements IDisplayable, ComparatorInterface
 {
-	String firstName;
-	String lastName;
-	int age;
+	protected final String firstName;
+	protected final String lastName;
+	protected final int age;
 
 	public Personne(String firstName, String lastName, int age)
 	{
@@ -19,6 +19,21 @@ public class Personne implements IDisplayable, ComparatorInterface
 	public void afficher()
 	{
 		System.out.println(this);
+	}
+
+	protected String getFirstName()
+	{
+		return "" + this.firstName;
+	}
+
+	protected String getLastName()
+	{
+		return "" + this.lastName;
+	}
+
+	protected int getAge()
+	{
+		return this.age;
 	}
 
 	public String toString()

@@ -11,12 +11,12 @@ import outils.nombreDeNuitException;
 import outils.nombreDeVoyageurException;
 import utilisateurs.Voyageur;
 
-public class Reservation implements IDisplayable {
-	String identifiant;
-	Sejour sejour;
-	Voyageur voyageur;
-	boolean estValidee;
-	MyDate dateDeReservation;
+public final class Reservation implements IDisplayable {
+	private final String identifiant;
+	private final Sejour sejour;
+	private final Voyageur voyageur;
+	private boolean estValidee;
+	private MyDate dateDeReservation;
 
 	public Reservation(Voyageur voyageur, Sejour sejour, boolean estValidee) throws Exception {
 		if (!sejour.verificationDateArrivee())

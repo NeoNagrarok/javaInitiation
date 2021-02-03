@@ -2,14 +2,24 @@ package utilisateurs;
 
 import outils.ComparatorInterface;
 
-public class Hote extends Personne
+public final class Hote extends Personne
 {
-	int delaiDeReponse;
+	private final int delaiDeReponse;
 
 	public Hote(String firstName, String lastName, int age, int delaiDeReponse)
 	{
 		super(firstName, lastName, age);
 		this.delaiDeReponse = delaiDeReponse;
+	}
+
+	public Hote(Hote src)
+	{
+		super(src.getFirstName(), src.getLastName(), src.getAge());
+		this.delaiDeReponse = src.getDelaiDeReponse();
+	}
+
+	private int getDelaiDeReponse() {
+		return this.delaiDeReponse;
 	}
 
 	@Override

@@ -2,10 +2,10 @@ package logements;
 
 import utilisateurs.Hote;
 
-public class Appartement extends Logement
+public final class Appartement extends Logement
 {
-	int numeroEtage;
-	int superficieBalcon;
+	private final int numeroEtage;
+	private final int superficieBalcon;
 
 	public Appartement(
 		Hote hote,
@@ -20,6 +20,11 @@ public class Appartement extends Logement
 		super(hote, tarifParNuit, adresse, superficie, nbVoyageurs);
 		this.numeroEtage = numeroEtage;
 		this.superficieBalcon = superficieBalcon;
+	}
+
+	public Logement copy()
+	{
+		return (Logement)(new Appartement(this.hote, this.tarifParNuit, this.adresse, this.superficie, this.nbVoyageurs, this.numeroEtage, this.superficieBalcon));
 	}
 
 	@Override

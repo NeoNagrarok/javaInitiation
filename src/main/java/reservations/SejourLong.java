@@ -54,7 +54,7 @@ public class SejourLong extends Sejour implements ConditionsTarifairesInterface 
 	 */
 	@Override
 	protected void miseAJourDuTarif() {
-		int basePrice = this.nbNuits * this.logement.tarifParNuit;
+		int basePrice = this.nbNuits * this.logement.getTarifParNuit();
 		this.promotion = (int)((float)(basePrice / 100.0) * this.PROMOTION_EN_POURCENTAGE);
 		this.tarif = basePrice - this.promotion;
 	}

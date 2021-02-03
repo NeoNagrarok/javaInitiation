@@ -33,6 +33,6 @@ public class SejourCourt extends Sejour implements ConditionsTarifairesInterface
 	 */
 	@Override
 	protected void miseAJourDuTarif() {
-		this.tarif = this.nbNuits * this.logement.tarifParNuit;
+		this.tarif = this.nbNuits * this.logement.getTarifParNuit();
 	}
 }
